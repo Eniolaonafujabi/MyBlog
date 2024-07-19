@@ -1,16 +1,12 @@
 package data.repository;
-
 import data.models.Post;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
-
 
 public class PostRepositoryimpl implements PostRepository {
 
     private List<Post> posts = new ArrayList<Post>();
-
+    private int count;
 
     @Override
     public void save(Post post) {
@@ -20,7 +16,7 @@ public class PostRepositoryimpl implements PostRepository {
     }
 
     private int generateUniqueId() {
-        return ThreadLocalRandom.current().nextInt(6,10);
+        return ++count;
     }
 
     @Override

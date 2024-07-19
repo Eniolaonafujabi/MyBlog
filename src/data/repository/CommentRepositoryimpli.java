@@ -3,22 +3,21 @@ package data.repository;
 import data.models.Comment;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
-public class PostCommentRepositoryimpli implements PostCommentRepository {
+public class CommentRepositoryimpli implements CommentRepository {
         private List<Comment> comments = new ArrayList<Comment>();
+        private int count;
 
 
     @Override
-    public void save(Comment comment,int postId) {
+    public void save(Comment comment) {
         int generatedNumber = generateUniqueId();
         comment.setCommentId(generatedNumber);
-        comment.setUserId(postId);
         comments.add(comment);
     }
 
     private int generateUniqueId() {
-        return ThreadLocalRandom.current().nextInt(7,15);
+        return ++count;
     }
 
     @Override

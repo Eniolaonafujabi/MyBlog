@@ -7,15 +7,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PostCommentRepositoryimpliTest {
+public class CommentRepositoryimpliTest {
 
-    private PostCommentRepository repository;
+    private CommentRepository repository;
     private Post post = new Post();
     private PostRepositoryimpl repo = new PostRepositoryimpl();
 
     @BeforeEach
     public void setUp() {
-        repository = new PostCommentRepositoryimpli();
+        repository = new CommentRepositoryimpli();
         repo.save(post);
     }
 
@@ -27,7 +27,7 @@ public class PostCommentRepositoryimpliTest {
         @Test
     public void testThatMyRepositoryHasIncreasedByOne() {
         Comment comment = new Comment();
-        repository.save(comment,post.getId());
+        repository.save(comment);
         assertEquals(repository.count(),1);
     }
 
@@ -35,8 +35,8 @@ public class PostCommentRepositoryimpliTest {
     public void testThatMyRepositoryHasIncreasedByTwoAndRemoveLastElement() {
         Comment comment = new Comment();
         Comment comment1 = new Comment();
-        repository.save(comment,post.getId());
-        repository.save(comment1,post.getId());
+        repository.save(comment);
+        repository.save(comment1);
         assertEquals(repository.count(),2);
         repository.deleteByCommentId(comment1.getCommentId());
         assertEquals(repository.count(),1);
@@ -48,10 +48,10 @@ public class PostCommentRepositoryimpliTest {
         Comment comment1 = new Comment();
         Comment comment2 = new Comment();
         Comment comment3 = new Comment();
-        repository.save(comment,post.getId());
-        repository.save(comment1,post.getId());
-        repository.save(comment2,post.getId());
-        repository.save(comment3,post.getId());
+        repository.save(comment);
+        repository.save(comment1);
+        repository.save(comment2);
+        repository.save(comment3);
         assertEquals(repository.count(),4);
         repository.deleteByCommentId(comment1.getCommentId());
         assertEquals(repository.count(),3);
@@ -61,8 +61,8 @@ public class PostCommentRepositoryimpliTest {
     public void testThatICanDeleteAllPost(){
         Comment comment = new Comment();
         Comment comment1 = new Comment();
-        repository.save(comment,post.getId());
-        repository.save(comment1,post.getId());
+        repository.save(comment);
+        repository.save(comment1);
         assertEquals(repository.count(),2);
         repository.deleteAll();
         assertTrue(repository.isEmpty());
@@ -72,8 +72,8 @@ public class PostCommentRepositoryimpliTest {
     public void testThatICanFindAllPost(){
         Comment comment = new Comment();
         Comment comment1 = new Comment();
-        repository.save(comment,post.getId());
-        repository.save(comment1,post.getId());
+        repository.save(comment);
+        repository.save(comment1);
         assertEquals(repository.findAll().size(),2);
     }
 
@@ -91,8 +91,8 @@ public class PostCommentRepositoryimpliTest {
     public void testThatICanFindCommentByUserIdAndDelete(){
         Comment comment = new Comment();
         Comment comment1 = new Comment();
-        repository.save(comment,post.getId());
-        repository.save(comment1,post.getId());
+        repository.save(comment);
+        repository.save(comment1);
         repository.deleteByPostId(comment.getUserId());
         assertEquals(repository.count(),1);
     }

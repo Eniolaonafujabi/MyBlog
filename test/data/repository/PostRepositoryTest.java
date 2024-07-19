@@ -1,8 +1,6 @@
-package repository;
+package data.repository;
 
 import data.models.Post;
-import data.repository.PostRepository;
-import data.repository.PostRepositoryimpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

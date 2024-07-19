@@ -4,9 +4,9 @@ import data.models.Comment;
 
 import java.util.List;
 
-public interface PostCommentRepository {
+public interface CommentRepository {
 
-    void save(Comment comment,int postId);
+    void save(Comment comment);
 
     List<Comment> findAll();
 
