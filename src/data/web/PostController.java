@@ -1,6 +1,8 @@
-package data.services;
+package data.web;
 
 import data.models.Post;
+import data.services.PostService;
+import data.services.PostServiceImpli;
 
 public class PostController {
     private PostService postService = new PostServiceImpli();
@@ -10,7 +12,7 @@ public class PostController {
         try{
             createdPost = postService.addPost(title,content);
         }catch (Exception e){
-            throw  new IllegalArgumentException(e);
+            throw new IllegalArgumentException(e.getMessage());
         }
        return String.valueOf(createdPost);
     }

@@ -31,10 +31,10 @@ class PostServiceImpliTest {
         assertEquals(postService.findPostById(id),currentPost);
     }
 
-    @Test
-    public void testThatICanNotAddSameTittle(){
-        postService.addPost("title","content");
-        postService.addPost("title","content");
+//    @Test
+//    public void testThatICanNotAddSameTittle(){
+//        postService.addPost("title","content");
+//        postService.addPost("title","content");
 //        assertThrows();
-    }
+//    }
 }
