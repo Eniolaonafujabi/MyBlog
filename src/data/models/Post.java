@@ -6,15 +6,6 @@ import java.util.List;
 
 public class Post {
 
-    public Post(String title, String content, List<Comment> comments, LocalDateTime updatedTime) {
-        this.title = title;
-        this.content = content;
-        this.comments = comments;
-        this.updatedTime = updatedTime;
-    }
-
-    public Post() {}
-
     public int getId() {
         return id;
     }

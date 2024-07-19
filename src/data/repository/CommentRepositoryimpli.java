@@ -11,9 +11,29 @@ public class CommentRepositoryimpli implements CommentRepository {
 
     @Override
     public void save(Comment comment) {
-        int generatedNumber = generateUniqueId();
-        comment.setCommentId(generatedNumber);
-        comments.add(comment);
+        boolean check = doesCommentExit(comment);
+        if (check) {
+            int index = getIndexOfTheComment(comment);
+            comments.add(index, comment);
+        }else {
+            int generatedNumber = generateUniqueId();
+            comment.setCommentId(generatedNumber);
+            comments.add(comment);
+        }
+    }
+
+    private Integer getIndexOfTheComment(Comment comment) {
+        for (int i = 0; i < comments.size(); i++) {
+            if (comments.get(i).getCommentId() == comment.getCommentId()) {
+                return i;
+            }
+        }
+        return null;
+    }
+
+    private boolean doesCommentExit(Comment comment) {
+        for (Comment comment1 : comments) if (comment1.getCommentId() == comment1.getCommentId()) return true;
+        return false;
     }
 
     private int generateUniqueId() {
