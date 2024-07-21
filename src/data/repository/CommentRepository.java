@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CommentRepository {
 
-    void save(Comment comment);
+    Comment save(Comment comment);
 
     List<Comment> findAll();
 
