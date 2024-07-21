@@ -28,7 +28,7 @@ class PostServiceImpliTest {
     public void testThatICanGetPostById() {
         Post currentPost = postService.addPost("title","content");
         int id = currentPost.getId();
-        assertEquals(postService.findPostById(id),currentPost);
+        assertEquals(postService.findPostById(id), currentPost);
     }
 
 //    @Test
