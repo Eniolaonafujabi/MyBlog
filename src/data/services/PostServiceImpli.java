@@ -3,8 +3,6 @@ package data.services;
 import data.models.Post;
 import data.repository.PostRepository;
 import data.repository.PostRepositoryimpl;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class PostServiceImpli implements PostService {
