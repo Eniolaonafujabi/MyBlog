@@ -10,7 +10,7 @@ public class CommentRepositoryimpli implements CommentRepository {
 
 
     @Override
-    public void save(Comment comment) {
+    public Comment save(Comment comment) {
         boolean check = doesCommentExit(comment);
         if (check) {
             int index = getIndexOfTheComment(comment);
@@ -20,6 +20,7 @@ public class CommentRepositoryimpli implements CommentRepository {
             comment.setCommentId(generatedNumber);
             comments.add(comment);
         }
+        return comment;
     }
 
     private Integer getIndexOfTheComment(Comment comment) {
