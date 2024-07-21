@@ -40,7 +40,7 @@ public class PostRepositoryimpl implements PostRepository {
     }
 
     private boolean doesPostExit(Post post) {
-        for (Post post1 : posts) if (post.getId() == post1.getId()) return true;
+        for (Post post1 : posts) if (post1.getId() == post.getId()) return true;
         return false;
     }
 
