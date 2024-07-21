@@ -5,7 +5,7 @@ import data.services.PostService;
 import data.services.PostServiceImpli;
 
 public class PostController {
-    private PostService postService = new PostServiceImpli();
+    private final PostService postService = new PostServiceImpli();
 
     public String createPost(String title, String content) {
         Post createdPost;
@@ -14,10 +14,26 @@ public class PostController {
         }catch (Exception e){
             throw new IllegalArgumentException(e.getMessage());
         }
-       return String.valueOf(createdPost);
+       return String.format("""
+               Title: %s
+               Content: %s
+               Post id: %d
+               DateCreated: %s
+               UpdatedCreated: %s
+               
+               """,createdPost.getTitle(),createdPost.getContent(),createdPost.getId(),createdPost.getCreatedTime(),createdPost.getUpdatedTime());
     }
 
-    public Post getPost(int id) {
-        return postService.findPostById(id);
+    public String getPost(int id) {
+        Post post= postService.findPostById(id);
+        return String.format("""
+                Title: %s
+                Content: %s
+                Post id: %d
+                DateCreated: %s
+                UpdatedCreated: %s
+         
+                """, post.getTitle(), post.getContent(), post.getId(), post.getCreatedTime(), post.getUpdatedTime());
     }
 }
+
