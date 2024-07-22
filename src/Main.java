@@ -16,7 +16,6 @@ public class Main {
         mainMain();
     }
 
-
     private static void mainMain(){
         String frontDisplay = """
              Press one of this option
