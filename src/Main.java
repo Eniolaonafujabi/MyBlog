@@ -1,7 +1,5 @@
 import data.web.PostController;
-
 import java.util.Scanner;
-
 import static java.lang.Integer.parseInt;
 
 public class Main {

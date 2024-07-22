@@ -14,7 +14,7 @@ public class CommentRepositoryimpli implements CommentRepository {
         boolean check = doesCommentExit(comment);
         if (check) {
             int index = getIndexOfTheComment(comment);
-            comments.add(index, comment);
+              comments.add(index, comment);
         }else {
             int generatedNumber = generateUniqueId();
             comment.setCommentId(generatedNumber);
@@ -23,17 +23,17 @@ public class CommentRepositoryimpli implements CommentRepository {
         return comment;
     }
 
-    private Integer getIndexOfTheComment(Comment comment) {
+    private int getIndexOfTheComment(Comment comment) {
         for (int i = 0; i < comments.size(); i++) {
             if (comments.get(i).getCommentId() == comment.getCommentId()) {
                 return i;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Comment not found");
     }
 
     private boolean doesCommentExit(Comment comment) {
-        for (Comment comment1 : comments) if (comment1.getCommentId() == comment1.getCommentId()) return true;
+        for (Comment comment1 : comments) if (comment1.getCommentId() == comment   .getCommentId()) return true;
         return false;
     }
 
