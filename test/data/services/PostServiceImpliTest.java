@@ -1,6 +1,8 @@
 package data.services;
 
-import data.models.Post;
+import com.semicolon.services.PostService;
+import com.semicolon.services.PostServiceImpli;
+import com.semicolon.data.models.Post;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

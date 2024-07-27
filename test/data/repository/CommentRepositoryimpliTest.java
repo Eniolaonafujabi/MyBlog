@@ -1,7 +1,10 @@
 package data.repository;
 
-import data.models.Comment;
-import data.models.Post;
+import com.semicolon.data.models.Comment;
+import com.semicolon.data.models.Post;
+import com.semicolon.data.repository.CommentRepository;
+import com.semicolon.data.repository.CommentRepositoryimpli;
+import com.semicolon.data.repository.PostRepositoryimpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

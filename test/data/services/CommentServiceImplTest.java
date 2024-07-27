@@ -1,6 +1,8 @@
 package data.services;
 
-import data.models.Comment;
+import com.semicolon.services.CommentService;
+import com.semicolon.services.CommentServiceImpl;
+import com.semicolon.data.models.Comment;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

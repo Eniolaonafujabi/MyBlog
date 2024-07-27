@@ -1,6 +1,8 @@
 package data.repository;
 
-import data.models.Post;
+import com.semicolon.data.models.Post;
+import com.semicolon.data.repository.PostRepository;
+import com.semicolon.data.repository.PostRepositoryimpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
