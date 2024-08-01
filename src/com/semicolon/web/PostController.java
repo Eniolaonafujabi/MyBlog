@@ -1,22 +1,23 @@
 package com.semicolon.web;
 
 import com.semicolon.data.models.Post;
+import com.semicolon.dtos.CreatePostRequest;
 import com.semicolon.services.PostService;
 import com.semicolon.services.PostServiceImpli;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 public class PostController {
-
-    private com.semicolon.services.PostService PostService;
-    private final PostService postService = new PostServiceImpli();
-
+    @Autowired
+    private  PostService postService;
     @PostMapping("/try1")
-    public String createPost(@RequestBody String title, String content) {
+    public String createPost(@RequestBody CreatePostRequest request) {
         Post createdPost;
         try{
-            createdPost = postService.addPost(title,content);
+            createdPost = postService.addPost(request.getTitle(),request.getContent());
         }catch (Exception e){
             throw new IllegalArgumentException(e.getMessage());
         }
